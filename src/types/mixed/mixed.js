@@ -393,7 +393,8 @@ class YupMixed extends Base {
       "when",
       (propRefName,
       (refValueFor, field) => {
-        const errorText = this.errMessages?.[this.key]?.refValueFor;
+        const refValueForError = this.validationErrorMessage('refValueFor');
+        const errorText = refValueForError || this.errMessages?.[this.key]?.refValueFor;
         if (errorText) {
           return refValueFor
             ? field.required().oneOf([yup.ref(propRefName)], errorText)
