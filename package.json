@@ -1,6 +1,6 @@
 {
-  "name": "schema-to-yup",
-  "version": "1.12.18",
+  "name": "@ryifkiyidan/schema-to-yup",
+  "version": "1.12.19",
   "publishConfig": {
     "access": "public"
   },
@@ -9,14 +9,14 @@
   "description": "Build a Yup schema object to validate models from a domain model schema (JSON or GraphQL)",
   "license": "MIT",
   "author": "Kristian Mandrup <kmandrup@gmail.com>",
-  "homepage": "https://github.com/kristianmandrup/schema-to-yup#readme",
+  "homepage": "https://github.com/ryifkiyidan/schema-to-yup#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kristianmandrup/schema-to-yup.git"
+    "url": "https://github.com/ryifkiyidan/schema-to-yup.git"
   },
   "bugs": {
-    "url": "https://github.com/kristianmandrup/schema-to-yup/issues",
-    "email": "kmandrup@gmail.com"
+    "url": "https://github.com/ryifkiyidan/schema-to-yup/issues",
+    "email": "ryifkiyidan@gmail.com"
   },
   "types": "types/index.d.ts",
   "dependencies": {
