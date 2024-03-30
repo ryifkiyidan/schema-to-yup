@@ -1,6 +1,6 @@
 {
   "name": "@ryifkiyidan/schema-to-yup",
-  "version": "1.12.19",
+  "version": "1.12.20",
   "publishConfig": {
     "access": "public"
   },
