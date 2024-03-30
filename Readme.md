@@ -18,45 +18,45 @@ You can use the `YupBuilderConfig` and `TypeHandlerConfig` type interfaces to fa
 
 Install
 
-`npm install schema-to-yup -S` or `yarn add schema-to-yup`
+`npm install @ryifkiyidan/schema-to-yup -S` or `yarn add @ryifkiyidan/schema-to-yup`
 
 Create a JSON schema to validate against
 
 ```js
 const schema = {
-  $schema: "http://json-schema.org/draft-07/schema#",
-  $id: "http://example.com/person.schema.json",
-  title: "Person",
-  description: "A person",
-  type: "object",
+  $schema: 'http://json-schema.org/draft-07/schema#',
+  $id: 'http://example.com/person.schema.json',
+  title: 'Person',
+  description: 'A person',
+  type: 'object',
   properties: {
     name: {
-      description: "Name of the person",
-      type: "string",
+      description: 'Name of the person',
+      type: 'string',
     },
     email: {
-      type: "string",
-      format: "email",
+      type: 'string',
+      format: 'email',
     },
     foobar: {
-      type: "string",
-      matches: "(foo|bar)",
+      type: 'string',
+      matches: '(foo|bar)',
     },
     age: {
-      description: "Age of person",
-      type: "number",
+      description: 'Age of person',
+      type: 'number',
       exclusiveMinimum: 0,
       required: true,
     },
     characterType: {
-      enum: ["good", "bad"],
-      enum_titles: ["Good", "Bad"],
-      type: "string",
-      title: "Type of people",
+      enum: ['good', 'bad'],
+      enum_titles: ['Good', 'Bad'],
+      type: 'string',
+      title: 'Type of people',
       propertyOrder: 3,
     },
   },
-  required: ["name", "email"],
+  required: ['name', 'email'],
 };
 ```
 
@@ -67,11 +67,11 @@ const config = {
   // for error messages...
   errMessages: {
     age: {
-      required: "A person must have an age",
+      required: 'A person must have an age',
     },
     email: {
-      required: "You must enter an email address",
-      format: "Not a valid email address",
+      required: 'You must enter an email address',
+      format: 'Not a valid email address',
     },
   },
 };
@@ -80,7 +80,7 @@ const config = {
 Create the yup schema using the builder method `buildYup`
 
 ```ts
-const { buildYup } = require("schema-to-yup");
+const { buildYup } = require('schema-to-yup');
 const yupSchema = buildYup(schema, config);
 ```
 
@@ -89,7 +89,7 @@ Use the yup schema methods such as `isValid` to validate
 ```ts
 // console.dir(schema)
 const valid = await yupSchema.isValid({
-  name: "jimmy",
+  name: 'jimmy',
   age: 24,
 });
 
@@ -126,10 +126,10 @@ You can override the `notRequired` behavior by setting it on the new `mode` obje
 
 ```js
 const jsonSchema = {
-  title: "users",
-  type: "object",
+  title: 'users',
+  type: 'object',
   properties: {
-    username: { type: "string" },
+    username: { type: 'string' },
   },
 };
 ```
@@ -143,7 +143,7 @@ const yupSchema = buildYup(jsonSchema, {
 
 // will be valid since username is not required by default
 const valid = yupSchema.validateSync({
-  foo: "dfds",
+  foo: 'dfds',
 });
 ```
 
@@ -155,7 +155,7 @@ const yupSchema = buildYup(jsonSchema, {
 });
 // will be invalid since username is required by default when notRequired mode is disabled
 const valid = yupSchema.validateSync({
-  foo: "dfds",
+  foo: 'dfds',
 });
 ```
 
@@ -176,7 +176,7 @@ You can access the internal Yup shape, via `shapeConfig` on the yup schema retur
 This allows you to easily mix and match to suit more advanced requirements.
 
 ```js
-const { buildYup } = require("json-schema-to-yup");
+const { buildYup } = require('json-schema-to-yup');
 const { shapeConfig } = buildYup(json, config);
 // alternatively
 // const shape = buildYup(json, config).propsToShape()
@@ -219,15 +219,15 @@ Reference constraints within the schema can be defined as follows:
 
 ```js
 schema = {
-  required: ["startDate", "endDate"],
-  type: "object",
+  required: ['startDate', 'endDate'],
+  type: 'object',
   properties: {
     startDate: {
-      type: "number",
+      type: 'number',
     },
     endDate: {
-      type: "number",
-      min: "startDate",
+      type: 'number',
+      min: 'startDate',
     },
   },
 };
